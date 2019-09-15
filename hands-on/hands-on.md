@@ -83,7 +83,7 @@ ssh -XY <login>@core.cluster.france-bioinformatique.fr
 ### 2 - Set up your working environment
 1. Go to your working directory
 ```bash
-cd /shared/projects/eba2018_<login>
+cd /shared/projects/ens_m2_2019/<login>
 ```
 2. Load the conda virtual environment which contains all bioinformatics tools used to analyze ChIP-seq data.
 ```bash
@@ -92,11 +92,11 @@ source activate eba2018_chipseq
 ```
 3. Create a directory that will contain all results of the upcoming analyses.
 ```bash
-mkdir EBA2018_chipseq
+mkdir cours_chipseq
 ```
 4. Go to the newly created directory
 ```bash
-cd EBA2018_chipseq
+cd cours_chipseq
 ```
 5. Start an interactive session
 ```bash
@@ -105,12 +105,12 @@ sinteractive
 6. Copy the directory containing data
 
 ```bash
-cp -r /shared/home/mthomaschollier/data .
+cp -r /shared/projects/ens_m2_2019/data .
 ```
 
 7. Your directory structure should be like this
  ```
-/shared/projects/eba2018_<login>/EBA2018_chipseq
+/shared/projects/ens_m2_2019/<login>/cours_chipseq
 │
 └───data
 ```
@@ -132,7 +132,7 @@ cd 01-QualityControl
 
 Your directory structure should be like this
  ```
-/shared/projects/eba2018_<login>/EBA2018_chipseq
+/shared/projects/ens_m2_2019/<login>/cours_chipseq
 │
 └───data
 │   
@@ -158,13 +158,13 @@ ls
 ```bash
 ### OPEN A NEW TERMINAL
 ## Create a directory where to put generated files on your computer
-mkdir ~/Desktop/EBA2018_chipseq
+mkdir ~/Desktop/cours_chipseq
 
 ## Go to the location on your computer, where you want to put the data, for example:
-cd ~/Desktop/EBA2018_chipseq
+cd ~/Desktop/cours_chipseq
 
 ## Download the file
-scp <login>@core.cluster.france-bioinformatique.fr:/shared/projects/eba2018_<login>/EBA2018_chipseq/01-QualityControl/SRR576933_fastqc.html .
+scp <login>@core.cluster.france-bioinformatique.fr:/shared/projects/ens_m2_2019/<login>/cours_chipseq/01-QualityControl/SRR576933_fastqc.html .
 # Enter your password
 ```
 7. On your machine, open this file in Firefox.  
@@ -250,7 +250,7 @@ cd IP
 ```
 Your directory structure should be like this:
 ```
-/shared/projects/eba2018_<login>/EBA2018_chipseq
+/shared/projects/ens_m2_2019/<login>/cours_chipseq
 │
 └───data
 │   
@@ -308,7 +308,7 @@ Open the file SRR576938.out. How many reads were mapped?**
 
 1. Go to the directory with alignment file of treatment (IP)
 ```bash
-cd /shared/projects/training/<login>/EBA2018_chipseq/02-Mapping/IP
+cd /shared/projects/ens_m2_2019/<login>/cours_chipseq/02-Mapping/IP
 ```
 2. Run Picard markDuplicates to mark duplicated reads (= reads mapping at the exact same location on the genome)
   * CREATE_INDEX: Create .bai file for the result bam file with marked duplicate reads
@@ -336,46 +336,7 @@ Go back to working home directory (i.e /shared/projects/training/<login>/EBA2018
 ```bash
 ## If you are in 02-Mapping/IP
 cd ../..
-```
-
-## ChIP quality controls <a name="cqc"></a>
-**Goal**: The first exercise aims at plotting the **Lorenz curve** to assess the quality of the chIP. The second exercise aims at calculating the **NSC** and **RSC** ENCODE quality metrics. These metrics allow to classify the datasets (after mapping, contrary to FASTQC that works on raw reads) in regards to the NSC and RSC values observed in the ENCODE datasets (see ENCODE guidelines)
-
-
-### 1 - Plot the Lorenz curve with Deeptools
-1. Create a directory named **03-ChIPQualityControls** in which to mapping results for IP
-```bash
-mkdir 03-ChIPQualityControls
-```
-2. Go to the newly created directory
-```bash
-cd 03-ChIPQualityControls
-```
-3. Run Deeptools [plotFingerprint](http://deeptools.readthedocs.io/en/latest/content/tools/plotFingerprint.html) (Fidel et al, NAR, 2016) to draw the Lorenz curve
-  * -b: List of indexed BAM files
-  * -plot: File name of the output figure (extension can be either “png”, “eps”, “pdf” or “svg”)
-```bash
-plotFingerprint -b ../02-Mapping/IP/SRR576933.bam ../02-Mapping/Control/SRR576938.bam -plot fingerprint.png
-```
-4. Download the file fingerprint.png on your local machine (either with ` scp ` or Cyberduck). Using ` scp ` it would look like this.
-```bash
-### OPEN A NEW TERMINAL
-## Go to the location on your computer, where you want to put the data
-cd ~/Desktop/EBA2018_chipseq
-
-## Download the file
-scp <login>@core.cluster.france-bioinformatique.fr:/shared/projects/training/<login>/EBA2018_chipseq/03-ChIPQualityControls/fingerprint.png .
-# Enter your password
-```
-
-**Look at the result files fingerprint.png. What do you think of it?**  
-
-
-Go back to working home directory (i.e /shared/projects/training/\<login\>/EBA2018_chipseq)
-```bash
-## If you are in 03-ChIPQualityControls
-cd ..
-```
+``
 
 ## Visualizing the data in a genome browser <a name="visualize"></a>
 **Goal**: View the data in their genomic context, to check whether the IP worked  
@@ -414,16 +375,16 @@ bamCoverage --help
 ```
 2. Create a directory named **04-Visualization** to store bamCoverage outputs
 ```bash
-mkdir 04-Visualization
+mkdir 03-Visualization
 ```
 3. Go to the newly created directory
 ```bash
-cd 04-Visualization
+cd 03-Visualization
 ```
 
 Your directory structure should be like this:
 ```
-/shared/projects/eba2018_<login>/EBA2018_chipseq
+/shared/projects/ens_m2_2019/<login>/cours_chipseq
 │
 └───data
 │   
@@ -434,9 +395,7 @@ Your directory structure should be like this:
 |    └───IP
 |    └───Control
 │   
-└───03-ChIPQualityControls
-│   
-└───04-Visualization <- you should be in this folder
+└───03-Visualization <- you should be in this folder
 ```
 
 4. Generate a scaled bigwig file on the IP with bamCoverage
@@ -466,9 +425,9 @@ bamCoverage --bam ../02-Mapping/IP/Marked_SRR576933.bam \
 **Go back to the genes we looked at earlier: b1127, b1108. Look at the shape of the signal.**  
 **Keep IGV opened.**
 
-Go back to working home directory (i.e /shared/projects/eba2018_<login>/EBA2018_chipseq)
+Go back to working home directory (i.e /shared/projects/ens_m2_2019/<login>/cours_chipseq)
 ```bash
-## If you are in 04-Visualization
+## If you are in 03-Visualization
 cd ..
 ```
 
@@ -481,11 +440,11 @@ There are multiple programs to perform the peak-calling step. Some are more dire
 ### 2 - Calling the peaks
 1. Create a directory named **05-PeakCalling** to store annotatePeaks outputs
 ```bash
-mkdir 05-PeakCalling
+mkdir 04-PeakCalling
 ```
 2. Go to the newly created directory
 ```bash
-cd 05-PeakCalling
+cd 04-PeakCalling
 ```
 3. Try out MACS
 ```bash
@@ -516,317 +475,21 @@ macs -t ../02-Mapping/IP/SRR576933.bam -c ../02-Mapping/Control/SRR576938.bam --
 
 **At this point, you should have a BED file containing the peak coordinates.**
 
-Go back to working home directory (i.e /shared/projects/eba2018_<login>/EBA2018_chipseq)
+Go back to working home directory (i.e /shared/projects/ens_m2_2019/<login>/cours_chipseq)
 ```bash
-## If you are in 05-PeakCalling
+## If you are in 04-PeakCalling
 cd ..
 ```
 
 ### 4 - Visualize peaks into IGV
 
-1. Download the BED file 05-PeakCalling/FNR_Anaerobic_A_peaks.bed to visualise in IGV.
+1. Download the BED file 04-PeakCalling/FNR_Anaerobic_A_peaks.bed to visualise in IGV.
 
 **Go back again to the genes we looked at earlier: b1127, b1108. Do you see peaks?**
 
 
-## Motif analysis <a name="motif"></a>
-**Goal**: Define binding motif(s) for the ChIPed transcription factor and identify potential cofactors
-
-### 1 - Retrieve the peak sequences corresponding to the peak coordinate file (BED)
-
-For the motif analysis, you first need to extract the sequences corresponding to the peaks. There are several ways to do this (as usual...). If you work on a UCSC-supported organism, the easiest is to use RSAT fetch-sequences or Galaxy. Here, we will use Bedtools, as we have the genome of interest on our computer (Escherichia_coli_K12.fasta).
-1. Create a directory named **07-MotifAnalysis** to store data needed for motif analysis
-```bash
-mkdir 06-MotifAnalysis
-```
-2. Go to the newly created directory
-```bash
-cd 06-MotifAnalysis
-```
-
-Your directory structure should be like this:
-```
-/shared/projects/eba2018_<login>/EBA2018_chipseq
-│
-└───data
-│   
-└───01-QualityControl
-│   
-└───02-Mapping
-|    └───index
-|    └───IP
-│   
-└───03-ChIPQualityControls
-│   
-└───04-Visualization
-│   
-└───05-PeakCalling
-│   
-└───06-MotifAnalysis <- you should be in this folder
-```
-
-
-3. Extract peak sequence in fasta format
-```bash
-## Create an index of the genome fasta file
-samtools faidx ../data/Escherichia_coli_K12.fasta
-
-## Extract fasta sequence from genomic coordinate of peaks
-bedtools getfasta -fi ../data/Escherichia_coli_K12.fasta \
--bed ../05-PeakCalling/FNR_Anaerobic_A_peaks.bed -fo FNR_Anaerobic_A_peaks.fa
-```
-
-### 2 - Motif discovery with RSAT
-1. Open a connection to a Regulatory Sequence Analysis Tools server. You can choose between various website mirrors.
-  * Teaching Server  (recommended for this training) [http://pedagogix-tagc.univ-mrs.fr/rsat/](http://pedagogix-tagc.univ-mrs.fr/rsat/)
-2. In the left menu, click on **NGS ChIP-seq** and then click on **peak-motifs**. A new page opens, with a form
-3. The default peak-motifs web form only displays the essential options. There are only two mandatory parameters.
-  * The title box, which you will set as FNR Anaerobic A. The sequences, that you will upload from your computer, by clicking on the button Choose file, and select the file FNR_Anaerobic_A_peaks.fa from your computer.
-4. We could launch the analysis like this, but we will now modify some of the advanced options in order to fine-tune the analysis according to your data set.
-  * Open the "Reduce peak sequences" title, and make sure the "Cut peak sequences: +/- " option is set to 0 (we wish to analyze our full dataset)
-  * Open the “Motif Discovery parameters” title, and check the oligomer sizes 6 and 7 (but not 8). Check "Discover over-represented spaced word pairs [dyad-analysis]"
-  Under “Compare discovered motifs with databases”, remove "JASPAR core vertebrates" and add RegulonDB prokaryotes (2015_08) as the studied organism is the bacteria E. coli.
-5. You can indicate your email address in order to receive notification of the task submission and completion. This is particularly useful because the full analysis may take some time for very large datasets.
-6. Click “GO”. As soon as the query has been launched, you should receive an email indicating confirming the task submission, and providing a link to the future result page.
-7. The Web page also displays a link, You can already click on this link. The report will be progressively updated during the processing of the workflow.
-
-### 3 - Motif discovery with RSAT (short peaks)
-1. Restrict the dataset to the summit of the peaks +/- 100bp using bedtools slop. Using bedtools slop to extend genomic coordinates allow not to go beyond chromosome boundaries as the user give the size of chromosomes as input (see fai file).
-```bash
-bedtools slop -b 100 -i ../05-PeakCalling/FNR_Anaerobic_A_summits.bed -g ../data/Escherichia_coli_K12.fasta.fai > FNR_Anaerobic_A_summits+-100.bed
-```
-2. Extract the sequences for this BED file
-```bash
-## Extract fasta sequence from genomic coordinate of peaks
-bedtools getfasta -fi ../data/Escherichia_coli_K12.fasta -bed FNR_Anaerobic_A_summits+-100.bed -fo FNR_Anaerobic_A_summits+-100.fa
-
-## Compress the genome file as we won't need it anymore
-gzip ../data/Escherichia_coli_K12.fasta
-```
-3. Run RSAT peak-motifs with the same options, but choosing as input file this new dataset (FNR_Anaerobic_A_summits+-100.fa)
-and setting the title box to **FNR Anaerobic A summit +/-100bp**
-
-
-## Annotation of ChIP-peaks using R tools <a name="peakr"></a>
-
-In this part, we will use a different set of peaks obtained using a peak caller from a set of p300 ChIP-seq experiments in different mouse embryonic tissues (midbrain, forebrain and limb).
-
-### 1 - Obtain the bed files from GEO
-
-From now on, we will work locally on your personal machine.
-
-0. We will download the already called peak files in bed format from GEO.
-Create a new folder for this analysis on **your** machine
-```bash
-cd ~/Desktop/EBA2018_chipseq
-mkdir PeakAnnotation
-cd PeakAnnotation
-```
-1. Search for the dataset **GSE13845** either using Google or from the front page of [GEO](https://www.ncbi.nlm.nih.gov/geo/)
-2. On the description page, find the three GSM files, and click on each of then
-3. On each page, select and download the `GSMxxxxx_p300_peaks.txt.gz` file to the newly created folder (where `xxxxx` represents the GSM number)
-You should now have downloaded 3 files:
-> GSM348064_p300_peaks.txt.gz  (Forebrain)
-> GSM348065_p300_peaks.txt.gz  (Midbrain)
-> GSM348066_p300_peaks.txt.gz  (limb)
-
-
-*Beware: Make sure to check which genome version was used to call the peaks (remember: this is mouse data!)*
-
-### 2 - Performing a first evaluation of peak sets using R
-
-Now, we will use **RStudio** to perform the rest of the analysis in R. For the analysis, we will need to install some R libraries, in particular [ChIPSeeker](https://bioconductor.org/packages/release/bioc/html/ChIPseeker.html)
-
-1. Open your **RStudio** tool
-2. Install
-   * [ChIPSeeker](https://bioconductor.org/packages/release/bioc/html/ChIPseeker.html)
-   * [mouse gene annotation](http://bioconductor.org/packages/release/data/annotation/html/TxDb.Mmusculus.UCSC.mm9.knownGene.html)
-   * [mouse functional annotation](http://bioconductor.org/packages/release/data/annotation/html/org.Mm.eg.db.html)
-   * [clusterProfiler: Gene set annotation tool](http://bioconductor.org/packages/release/bioc/html/clusterProfiler.html)
-
-following the instruction of the corresponding websites.
-3. Install the  [RColorBrewer](https://www.rdocumentation.org/packages/RColorBrewer/versions/1.1-2/topics/RColorBrewer) package to produce nice plots
-```r
-install.packages('RColorBrewer')
-```
-4. load the required packages
-```r
-# load the required libraries
-library(RColorBrewer)
-library(ChIPseeker)
-library(TxDb.Mmusculus.UCSC.mm9.knownGene)
-library(org.Mm.eg.db)
-# define the annotation of the mouse genome
-txdb = TxDb.Mmusculus.UCSC.mm9.knownGene
-# define colors
-col = brewer.pal(9,'Set1')
-````
-
-5. read the peak files for the three datasets:
-
-```r
-# set the working directiry to the folder in which the peaks are stored
-setwd(<directory containing the peak files>)
-
-# read the peaks for each dataset
-peaks.forebrain = readPeakFile('GSM348064_p300_peaks.txt.gz')
-peaks.midbrain = readPeakFile('GSM348065_p300_peaks.txt.gz')
-peaks.limb = readPeakFile('GSM348066_p300_peaks.txt.gz')
-
-# create a list containing all the peak sets
-all.peaks = list(forebrain=peaks.forebrain,
-midbrain=peaks.midbrain,
-limb=peaks.limb)
-```
-
-The peaks are stored as **GenomicRanges** object; this is an R format which ressembles the bed format, but is optimized in terms of memory requirements and speed of exectution.
-
-We can start by computing some basic statistics on the peak sets.
-
-#### How many peaks?
-
-```r
-# check the number of peaks for the forebrain dataset
-length(peaks.forebrain)
-
-# compute the number of peaks for all datasets using the list object
-sapply(all.peaks,length)
-
-# display this as a barplot
-barplot(sapply(all.peaks,length),col=col)
-```
-
-#### How large are these peaks?
-```r
-# statistics on the peak length for forebrain
-summary(width(peaks.forebrain))
-
-# size distribution of the peaks
-peaks.width = lapply(all.peaks,width)
-lapply(peaks.width,summary)
-
-# boxplot of the sizes
-boxplot(peaks.width,col=col)
-```
-
-#### What is the score of these peaks?
-
-Can you adapt the previous code to display a boxplot of the peak score distribution for the Forebrain peak set (column `Maximum.Peak.Height`)?
-
-#### Where are the peaks located?
-
-We can now display the genomic distribution of the peaks along the chromosomes, including the peak scores, using the `covplot` function from `ChIPSeeker`:
-```r
-# genome wide distribution
-covplot(peaks.forebrain, weightCol="Maximum.Peak.Height")
-```
-**Exercice: use the option "lower" in covplot to display only the peaks with a score (Max.Peak.Height) above 10**
-
-#### How does the signal look like at TSS?
-
-In addition to the genome wide plot, we can check if there is a tendency for the peaks to be located close to gene promoters.
-```r
-# define gene promoters
-promoter = getPromoters(TxDb=txdb, upstream=5000, downstream=5000)
-
-# compute the density of peaks within the promoter regions
-tagMatrix = getTagMatrix(peaks.limb, windows=promoter)
-
-# plot the density
-tagHeatmap(tagMatrix, xlim=c(-5000, 5000), color="red")
-```
-
-### 3 - Functional annotation of the peaks
-
-We can now assign the peaks to the closest genes and genomic compartments (introns, exons, promoters, distal regions, etc...)
-This is done using the function `annotatePeak` which compares the peak files with the annotation file of the mouse genome. This function returns
-a complex object which contains all this information.
-
-```r
-peakAnno.forebrain = annotatePeak(peaks.forebrain, tssRegion=c(-3000, 3000), TxDb=txdb, annoDb="org.Mm.eg.db")
-peakAnno.midbrain = annotatePeak(peaks.midbrain, tssRegion=c(-3000, 3000), TxDb=txdb, annoDb="org.Mm.eg.db")
-peakAnno.limb = annotatePeak(peaks.limb, tssRegion=c(-3000, 3000), TxDb=txdb, annoDb="org.Mm.eg.db")
-```
-
-#### genomic localization
-
-We can now analyze more in details the localization of the peaks (introns, exons, promoters, distal regions,...)
-
-```r
-# distribution of genomic compartments for forebrain peaks
-plotAnnoPie(peakAnno.forebrain)
-
-# for all the peaks
-plotAnnoBar(list(forebrain=peakAnno.forebrain, midbrain=peakAnno.midbrain,limb=peakAnno.limb))
-```
-*Question: do you see differences between the three peak sets?*
-
-
-#### functional annotation
-
-An important step in ChIP-seq analysis is to interpret genes that are located close to the ChIP peaks. Hence, we need to
-1. assign genes to peaks
-2. compute functional enrichments of the target genes.
-
-**Beware:**
-By doing so, we assume that the target gene of the peak is always the closest one. Hi-C/4C analysis have shown that in higher eukaryotes, this is not always the case. However, in the absence of data on the real target gene of ChIP-peaks, we can work with this approximation.
-
-We will compute the enrichment of the Gene Ontology "Biological Process" categories in the set of putative target genes.
-
-```r
-# load the library
-library(clusterProfiler)
-
-# define the list of all mouse genes as a universe for the enrichment analysis
-universe = mappedkeys(org.Mm.egACCNUM)
-
-## extract the gene IDs of the forebrain target genes
-genes.forebrain = peakAnno.forebrain@anno$geneId
-ego.forebrain = enrichGO(gene          = genes.forebrain,
-                universe      = universe,
-                OrgDb         = org.Mm.eg.db,
-                ont           = "BP",
-                pAdjustMethod = "BH",
-                pvalueCutoff  = 0.01,
-                qvalueCutoff  = 0.05,
-        readable      = TRUE)
-
-# display the results as barplots        
-barplot(ego.forebrain,showCategory=10)
-```
-*Question: do you see an enrichment of the expected categories? What does the x-axis mean? What does the color mean?*
-
-**Exercise:** redo this analysis for the limb dataset and check if the enriched categories make sense.
-
-
-## FAQ <a name="faq"></a>
-### How to extract peaks from the supplementary data of a publication ?
-The processed peaks (BED file) is sometimes available on the GEO website, or in supplementary data. Unfortunately, most of the time, the peak coordinates are embedded into supplementary tables and thus not usable "as is".
-This is the case for the studied article. To be able to use these peaks (visualize them in a genome browser, compare them with the peaks found with another program, perform downstream analyses...), you will need to (re)-create a BED file from the information available.
-Here, Table S5 provides the coordinates of the summit of the peaks. The coordinates are for the same assembly as we used.
-
-1. copy/paste the first column into a new file, and save it as retained_peaks.txt
-2. use a PERL command (or awk if you know this language) to create a BED-formatted file. As we need start and end coordinates, we will arbitrarily take +/-50bp around the summit.
-```bash
-perl -lane 'print "gi|49175990|ref|NC_000913.2|\t".($F[0]-50)."\t".($F[0]+50)."\t" ' retained_peaks.txt > retained_peaks.bed
-```
-3. The BED file looks like this:
-> gi|49175990|ref|NC_000913.2|	120	220
-> gi|49175990|ref|NC_000913.2|	20536	20636
-> gi|49175990|ref|NC_000913.2|	29565	29665
-> gi|49175990|ref|NC_000913.2|	34015	34115
-4. Depending on the available information, the command will be different.
-
-### How to obtain the annotation (=Gene) GTF file for IGV?
-Annotation files can be found on genome websites, NCBI FTP server, Ensembl, ... However, IGV required GFF format, or BED format, which are often not directly available.
-Here, I downloaded the annotation from the [UCSC Table browser](http://microbes.ucsc.edu/cgi-bin/hgTables?org=Escherichia+coli+K12&db=eschColi_K12&hgsid=1465191&hgta_doMainPage=1) as "Escherichia_coli_K_12_MG1655.annotation.gtf". Then, I changed the "chr" to the name of our genome with the following PERL command:
-
-```bash
-perl -pe 's/^chr/gi\|49175990\|ref\|NC_000913.2\|/' Escherichia_coli_K_12_MG1655.annotation.gtf > Escherichia_coli_K_12_MG1655.annotation.fixed.gtf
-```
-This file will work directly in IGV
-
 ## References <a name="ref"></a>
+This practical is jointly prepared with the [EBAI course](https://www.france-bioinformatique.fr/fr/evenements/EBAI2019)
 
 [geo]: https://github.com/slegras/EBAI2017/blob/master/images/1_GEO.png "GEO"
 [geo2]: https://github.com/slegras/EBAI2017/blob/master/images/2_GEO.png "GEO2"
