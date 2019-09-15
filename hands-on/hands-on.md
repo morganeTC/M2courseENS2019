@@ -1,4 +1,4 @@
-# ChIP-seq Hands-on Roscoff 2018
+# ChIP-seq Practical 2019
 
 
 1. [Introduction](#introduction)  
@@ -23,15 +23,14 @@ The aim is to :
   * have an understanding of the nature of ChIP-Seq data
   * perform a complete analysis workflow including quality check (QC), read mapping, visualization in a genome browser and peak-calling. Use command line and open source software for each step of the workflow and feel the complexity of the task
   * have an overview of possible downstream analyses
-  * perform a motif analysis with online web programs
+
 
 ### Summary
-This training gives an introduction to ChIP-seq data analysis, covering the processing steps starting from the reads to the peaks. Among all possible downstream analyses, the practical aspect will focus on motif analyses. A particular emphasis will be put on deciding which downstream analyses to perform depending on the biological question. This training does not cover all methods available today. It does not aim at bringing users to a professional NGS analyst level but provides enough information to allow biologists understand what DNA sequencing practically is and to communicate with NGS experts for more in-depth needs.
+This training gives an introduction to ChIP-seq data analysis, covering the processing steps starting from the reads to the peaks. Among all possible downstream analyses, the practical aspect will focus on motif analyses. This training does not cover all methods available today. It does not aim at bringing users to a professional NGS analyst level but provides enough information to allow biologists understand what DNA sequencing practically is and to communicate with NGS experts for more in-depth needs.
 
 ### Dataset description
-For this training, we will use two datasets:
+For this training, we will use this dataset:
 * a dataset produced by Myers et al [Pubmed](http://www.ncbi.nlm.nih.gov/pubmed/23818864) involved in the regulation of gene expression under anaerobic conditions in bacteria. We will focus on one factor: **FNR**. The advantage of this dataset is its small size, allowing real time execution of all steps of the dataset
-* a dataset of ChIP-seq peaks obtained in different mouse tissues for the p300 co-activator protein by Visel et al. [Pubmed](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2745234/); we will use this dataset to illustrate downstream annotation of peaks using R tools.
 
 ## Downloading ChIP-seq reads from NCBI <a name="download"></a>
 **Goal**: Identify the dataset corresponding to the studied article and retrieve the data (reads as FASTQ file) corresponding to one experiment and the control.  
