@@ -336,7 +336,7 @@ Go back to working home directory (i.e /shared/projects/training/<login>/EBA2018
 ```bash
 ## If you are in 02-Mapping/IP
 cd ../..
-``
+```
 
 ## Visualizing the data in a genome browser <a name="visualize"></a>
 **Goal**: View the data in their genomic context, to check whether the IP worked  
