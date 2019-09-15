@@ -438,7 +438,7 @@ cd ..
 There are multiple programs to perform the peak-calling step. Some are more directed towards histone marks (broad peaks) while others are specific to narrow peaks (transcription factors). Here we will use MACS version 1.4.2 because it's known to produce generally good results, and it is well-maintained by the developer. A new version (MACS2) is available.
 
 ### 2 - Calling the peaks
-1. Create a directory named **05-PeakCalling** to store annotatePeaks outputs
+1. Create a directory named **04-PeakCalling** to store annotatePeaks outputs
 ```bash
 mkdir 04-PeakCalling
 ```
