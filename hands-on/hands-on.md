@@ -90,25 +90,29 @@ cd /shared/projects/ens_m2_2019/<login>
 module load conda
 source activate eba2018_chipseq
 ```
-3. Create a directory that will contain all results of the upcoming analyses.
-```bash
-mkdir cours_chipseq
-```
-4. Go to the newly created directory
-```bash
-cd cours_chipseq
-```
-5. Start an interactive session
+3. Start an interactive session
 ```bash
 sinteractive
 ```
-6. Copy the directory containing data
+4. Create a directory that will contain all results of the upcoming analyses.
+```bash
+mkdir cours_chipseq
+```
+5. Go to the newly created directory
+```bash
+cd cours_chipseq
+```
+6. <mark>Start an interactive session</mark>
+```bash
+sinteractive
+```
+7. Copy the directory containing data
 
 ```bash
 cp -r /shared/projects/ens_m2_2019/data .
 ```
 
-7. Your directory structure should be like this
+8. Your directory structure should be like this
  ```
 /shared/projects/ens_m2_2019/<login>/cours_chipseq
 │
