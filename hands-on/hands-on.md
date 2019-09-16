@@ -94,6 +94,8 @@ source activate eba2018_chipseq
 ```bash
 sinteractive
 ```
+<mark> These last 4 commands must be run each time you connect to the server</mark>
+
 4. Create a directory that will contain all results of the upcoming analyses.
 ```bash
 mkdir cours_chipseq
@@ -102,14 +104,15 @@ mkdir cours_chipseq
 ```bash
 cd cours_chipseq
 ```
-6. <mark>Start an interactive session</mark>
-```bash
-sinteractive
-```
-7. Copy the directory containing data
 
+7. Copy the directory containing data for the practical. This creates a new folder named "practical" in your personal space 
 ```bash
-cp -r /shared/projects/ens_m2_2019/data .
+cp -r /shared/projects/ens_m2_2019/data/practical .
+```
+
+8. To have a more meaningful naming of the folder, rename this folder "data"
+```bash
+mv practical data
 ```
 
 8. Your directory structure should be like this
@@ -117,6 +120,11 @@ cp -r /shared/projects/ens_m2_2019/data .
 /shared/projects/ens_m2_2019/<login>/cours_chipseq
 │
 └───data
+```
+If you wish, you can check this structure:
+ ```
+cd /shared/projects/ens_m2_2019/<login>
+tree
 ```
 
 ## Quality control of the reads and statistics <a name="qc"></a>
@@ -127,6 +135,7 @@ Before you analyze the data, it is crucial to check the quality of the data. We 
 
 1. Create a directory named **01-QualityControl** in which to output results from fastqc
 ```bash
+cd /shared/projects/ens_m2_2019/<login>/cours_chipseq
 mkdir 01-QualityControl
 ```
 2. Go to the directory you've just created
