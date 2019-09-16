@@ -60,11 +60,11 @@ Although direct access to the SRA database at the NCBI is doable, SRA does not s
 
 1. Go to the [EBI](http://www.ebi.ac.uk/) website. Paste your SRA identifier (SRX189773) and click on the button "search".
 ![alt text][ebi4]
-2. Click on the first result. On the next page, there is a link to the FASTQ file. For efficiency, this file has already been downloaded and is available in the "data" folder (SRR576933.fastq.gz)  
+2. Click on the first result. On the next page, there is a link to the FASTQ file. For efficiency, this file has already been downloaded and will be available on the server. (SRR576933.fastq.gz)  
 ![alt text][ebi5]
 
 **tip**: To download the control dataset, we should redo the same steps starting from the GEO web page specific to the chip-seq datasets (see step 2.4) and choose **anaerobic INPUT DNA**.  
-The downloaded FASTQ file is available in the data folder (SRR576938.fastq.gz)
+The downloaded FASTQ file will also be available on the server (SRR576938.fastq.gz)
 
 **At this point, you have two FASTQ files, one for the experiment, one for the control.**
 
