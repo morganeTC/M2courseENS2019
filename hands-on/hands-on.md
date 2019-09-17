@@ -94,7 +94,7 @@ source activate eba2018_chipseq
 ```bash
 sinteractive
 ```
-<mark> These last 4 commands must be run each time you connect to the server</mark>
+**These last 4 commands must be run each time you connect to the server**
 
 4. Create a directory that will contain all results of the upcoming analyses.
 ```bash
@@ -370,9 +370,9 @@ If the data are on your computer, to prevent data transfer, it's easier to visua
 3. Load the genome
   * Genomes / Load Genome from File...
   * Select the fasta file Escherichia_coli_K12.fasta located into the data directory
-4. Load an annotation file named Escherichia_coli_K_12_MG1655.annotation.fixed.bed into IGV
+4. Load an annotation file (genes) into IGV  
   * File / Load from File...
-  * Select the annotation file. The positions of the genes are now loaded.
+  * Select the annotation file: Escherichia_coli_K_12_MG1655.annotation.fixed.bed  The positions of the genes are now loaded.
 5. Load the two bam files (SRR576933.bam and SRR576938.bam) in IGV.
 
 **Browse around in the genome. Do you see peaks?**  
