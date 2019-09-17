@@ -427,8 +427,8 @@ bamCoverage --bam ../02-Mapping/IP/Marked_SRR576933.bam \
 ```
 5. Do it for the control (be careful for the control you will need **5G** of memory to process the file)
 6. Download the two bigwig files you have just generated
-  * 04-Visualization/SRR576933_nodup.bw
-  * 04-Visualization/SRR576938_nodup.bw
+  * 03-Visualization/SRR576933_nodup.bw
+  * 03-Visualization/SRR576938_nodup.bw
 7. Load the two bigwig files in IGV
   * File / Load from File...
   * Select the two bigwig files.
