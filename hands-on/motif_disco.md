@@ -8,7 +8,7 @@
 For this training, we will use this dataset:
 
 * ChIP-seq experiment conducted in mouse stem cells, published as: Chen et al (2008) [Integration of External Signaling Pathways with the Core Transcriptional Network in Embryonic Stem Cells](https://www.ncbi.nlm.nih.gov/pubmed/18555785) Cell 133(6),1106–1117.
-We will focus on the **Oct4** transcription factor. 
+We will focus on the **Oct4 (also known as Pou5f1)** transcription factor. 
 
 You have at your disposal the set of pre-processed peaks (BED file). To focus the region near the summit of the peaks (rather than the complete peaks), use the summit file provided by MACS (only the base corresponding to the summit is listed). [Save it on your local computer (right click > Save link as...)](/files/Oct4_vs_GFP_mm9_summits.bed)
 
@@ -21,7 +21,7 @@ For the motif analysis, you first need to extract the sequences corresponding to
   * Teaching Server  (recommended for this training) [http://pedagogix-tagc.univ-mrs.fr/rsat/](http://pedagogix-tagc.univ-mrs.fr/rsat/)
 2. In the left menu, click on **NGS ChIP-seq** and then click on **fetch-sequences**. A new page opens, with a form
   * Choose the mouse **mm9** genome reference
-  *  For the BED file, **upload from your computer**
+  *  For the BED file, **upload from your computer** the file you saved above
   *  open the panel **Reference from which the sequences should be fetched**
   *  Add 50bp upstream and downstream. You will obtain sequences of 100bp (summit +/- 50bp)
 ![screenshot](/images/10_fetch_sequences.png)
