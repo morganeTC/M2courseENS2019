@@ -40,3 +40,6 @@ For the motif analysis, you first need to extract the sequences corresponding to
 5. You can indicate your email address in order to receive notification of the task submission and completion. This is particularly useful because the full analysis may take some time for very large datasets.
 6. Click “GO”. As soon as the query has been launched, you should receive an email indicating confirming the task submission, and providing a link to the future result page.
 7. The Web page also displays a link, You can already click on this link. The report will be progressively updated during the processing of the workflow.
+
+### Analyzing the results
+The [published protocol](https://www.nature.com/articles/nprot.2012.088) accessible on the cloud provides additional information about the algorithms (see the blue BOXES), as well as guidance to interpret the results (section: ANTICIPATED RESULTS). Additional information regarding motifs found in Oct4 dataset is available in the [publication of peak-motifs](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3287167/)
