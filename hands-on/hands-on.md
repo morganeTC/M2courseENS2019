@@ -433,7 +433,7 @@ bamCoverage --bam ../02-Mapping/IP/Marked_SRR576933.bam \
   * File / Load from File...
   * Select the two bigwig files.
 8. Set the visualization of the two bigwig files to the same range
-  * Click right on the name of the tracks and select **Set data range**, put the value 1.5 
+  * Click right on the name of the tracks and select **Set data range**, put the value 4 
 
 **Go back to the genes we looked at earlier: b1127, b1108. Look at the shape of the signal.**  
 **Keep IGV opened.**
